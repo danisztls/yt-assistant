@@ -1,0 +1,34 @@
+#!/bin/env python
+
+"""Youtube Assistant"""
+
+import os
+import argparse
+import yaml
+from yt_dlp import YoutubeDL
+
+# default options
+opts = {
+    "output": "%(playlist_index) - %(channel) - %(title)s.%(ext)s",
+    "format": "bestvideo+bestaudio/best/best",
+    "download_archive": "downloaded.txt",
+}
+
+# options from arguments
+parser = argparse.ArgumentParser()
+parser.add_argument('-d', '--working-dir', dest='working_dir', default=".", help="Working directory")
+parser.add_argument('-i', '--video-id', dest='video_id', help="Video or playlist ID")
+opts = opts | vars(parser.parse_args())
+
+# change dir
+os.chdir(os.path.abspath(opts["working_dir"]))
+
+# options from config file
+if os.path.isfile("options.yml"):
+    with open('options.yml', 'r') as f:
+        opts = opts | yaml.safe_load(f)
+
+# download videos
+assert opts["video_id"]
+with YoutubeDL(opts) as ydl:
+    ydl.extract_info(opts["video_id"], download=True)
