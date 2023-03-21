@@ -9,7 +9,6 @@ from yt_dlp import YoutubeDL
 
 # default options
 opts = {
-    "output": "%(playlist_index) - %(channel) - %(title)s.%(ext)s",
     "format": "bestvideo+bestaudio/best/best",
     "download_archive": "downloaded.txt",
 }
