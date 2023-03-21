@@ -23,8 +23,8 @@ opts = opts | vars(parser.parse_args())
 os.chdir(os.path.abspath(opts["working_dir"]))
 
 # options from config file
-if os.path.isfile("options.yml"):
-    with open('options.yml', 'r') as f:
+if os.path.isfile("yt-assistant.yml"):
+    with open('yt-assistant.yml', 'r') as f:
         opts = opts | yaml.safe_load(f)
 
 # download videos
