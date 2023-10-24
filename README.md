@@ -2,11 +2,12 @@
 
 Enjoy Youtube with less effort and without nuisances like ads, sponsor segments and streaming issues. **yt-assistant** is a wrapper for [yt-dlp](https://github.com/yt-dlp/yt-dlp/) which helps with storing configuration and automation.
 
-## Use case
+***NOTE: yt-dlp supports configuration, so this tool is irrelevant.***
+
+## Use cases
 
 - Automate retrieval of videos — or music — from a playlist. 
 - Bypass ads, anti-adblock warnings and other nuisances. 
-- 
 
 ## Usage
 
